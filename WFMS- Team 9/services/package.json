@@ -1,0 +1,17 @@
+{
+  "name": "workforceServerWithRabbitMQ",
+  "version": "0.0.1",
+  "private": true,
+  "scripts": {
+    "start": "node server.js"
+  },
+  "dependencies": {
+    "express": "3.2.6",
+    "mysql":"*",
+    "ejs": "*",
+    "queue": "~3.0.10",
+    "amqp":"*",
+    "hashmap":"*",
+    "twilio":"*"
+  }
+}

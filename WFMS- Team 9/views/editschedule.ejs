@@ -1,0 +1,636 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <title>Edit Client</title>
+	<link rel="icon" href="images/favicon.ico">
+    <!-- Bootstrap Core CSS -->
+    <link href="/css/bootstrap.css" rel="stylesheet">
+
+    <!-- Custom CSS -->
+    <link href="/css/admin.css" rel="stylesheet">
+
+    <!-- Morris Charts CSS -->
+    <link href="/css/plugins/morris.css" rel="stylesheet">
+<!-- Custom Fonts -->
+<    <link href="/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">	
+    		 <link rel="stylesheet" href="/styles/kendo.common.min.css" />
+    <link rel="stylesheet" href="/styles/kendo.moonlight.min.css" />
+    <link rel="stylesheet" href="/styles/kendo.dataviz.min.css" />
+    <link rel="stylesheet" href="/styles/kendo.dataviz.moonlight.min.css" />
+    <link rel="stylesheet" href="/styles/kendo.moonlight.mobile.min.css" /> 
+    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+        <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+        <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+	<style>
+	#header-page{
+	background-image: url("textures/brushed-metal.png");
+  background-image: url("textures/brushed-metal.png"),-webkit-linear-gradient(top,#2f3640 0,#212a33 100%);
+  background-image: url("textures/brushed-metal.png"),-moz-linear-gradient(top,#2f3640 0,#212a33 100%);
+  background-image: url("textures/brushed-metal.png"),-o-linear-gradient(top,#2f3640 0,#212a33 100%);
+  background-image: url("textures/brushed-metal.png"),linear-gradient(to bottom,#2f3640 0,#212a33 100%);
+  background-position: 50% 50%;
+  background-color: #212a33;
+  border-color: #171e28;
+  color:#fff;
+  }
+  	#modalheader-page{
+	margin-left:5px;
+	margin-right:5px;
+	background-image: url("textures/brushed-metal.png");
+  background-image: url("textures/brushed-metal.png"),-webkit-linear-gradient(top,#2f3640 0,#212a33 100%);
+  background-image: url("textures/brushed-metal.png"),-moz-linear-gradient(top,#2f3640 0,#212a33 100%);
+  background-image: url("textures/brushed-metal.png"),-o-linear-gradient(top,#2f3640 0,#212a33 100%);
+  background-image: url("textures/brushed-metal.png"),linear-gradient(to bottom,#2f3640 0,#212a33 100%);
+  background-position: 50% 50%;
+  background-color: #212a33;
+  border-color: #171e28;
+  color:#fff;
+	}
+  
+  #pvGrid .k-grid-header .k-header
+{
+      color: #ee9f05;
+}
+  #incidentGrid .k-grid-header .k-header
+{
+      color: #ee9f05;
+}
+  #csGrid .k-grid-header .k-header
+{
+      color: #ee9f05;
+}
+  #msGrid .k-grid-header .k-header
+{
+      color: #ee9f05;
+}
+
+h5{
+font-weight:bold;
+font-size:14px;
+}
+	</style>
+  
+  
+  
+</head>
+
+<body>
+
+    <div id="wrapper">
+        <!-- Navigation -->
+        <nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+            <!-- Brand and toggle get grouped for better mobile display -->
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-ex1-collapse">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+          <a class="navbar-brand" href="index" style=""><img src="/images/logos2.png" style="height:40px;width:120px;"/></a>
+            </div>
+            <!-- Top Menu Items -->
+            <ul class="nav navbar-right top-nav">
+                <li class="dropdown">
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown"><i class="fa fa-envelope"></i> <b class="caret"></b></a>
+                    <ul class="dropdown-menu message-dropdown">
+                        <li class="message-preview">
+                            <a href="#">
+                                <div class="media">
+                                    <span class="pull-left">
+                                      
+                                    </span>
+                                    <div class="media-body">
+                                        <h5 class="media-heading"><strong>John Smith</strong>
+                                        </h5>
+                                        <p class="small text-muted"><i class="fa fa-clock-o"></i> Yesterday at 4:32 PM</p>
+                                        <p>Lorem ipsum dolor sit amet, consectetur...</p>
+                                    </div>
+                                </div>
+                            </a>
+                        </li>
+                        <li class="message-preview">
+                            <a href="#">
+                                <div class="media">
+                                    <span class="pull-left">
+                                        <img class="media-object" src="http://placehold.it/50x50" alt="">
+                                    </span>
+                                    <div class="media-body">
+                                        <h5 class="media-heading"><strong>John Smith</strong>
+                                        </h5>
+                                        <p class="small text-muted"><i class="fa fa-clock-o"></i> Yesterday at 4:32 PM</p>
+                                        <p>Lorem ipsum dolor sit amet, consectetur...</p>
+                                    </div>
+                                </div>
+                            </a>
+                        </li>
+                        <li class="message-preview">
+                            <a href="#">
+                                <div class="media">
+                                    <span class="pull-left">
+                                        <img class="media-object" src="http://placehold.it/50x50" alt="">
+                                    </span>
+                                    <div class="media-body">
+                                        <h5 class="media-heading"><strong>John Smith</strong>
+                                        </h5>
+                                        <p class="small text-muted"><i class="fa fa-clock-o"></i> Yesterday at 4:32 PM</p>
+                                        <p>Lorem ipsum dolor sit amet, consectetur...</p>
+                                    </div>
+                                </div>
+                            </a>
+                        </li>
+                        <li class="message-footer">
+                            <a href="#">Read All New Messages</a>
+                        </li>
+                    </ul>
+                </li>
+                <li class="dropdown">
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown"><i class="fa fa-bell"></i> <b class="caret"></b></a>
+                    <ul class="dropdown-menu alert-dropdown">
+                        <li>
+                            <a href="#">Alert Name <span class="label label-default">Alert Badge</span></a>
+                        </li>
+                        <li>
+                            <a href="#">Alert Name <span class="label label-primary">Alert Badge</span></a>
+                        </li>
+                        <li>
+                            <a href="#">Alert Name <span class="label label-success">Alert Badge</span></a>
+                        </li>
+                        <li>
+                            <a href="#">Alert Name <span class="label label-info">Alert Badge</span></a>
+                        </li>
+                        <li>
+                            <a href="#">Alert Name <span class="label label-warning">Alert Badge</span></a>
+                        </li>
+                        <li>
+                            <a href="#">Alert Name <span class="label label-danger">Alert Badge</span></a>
+                        </li>
+                        <li class="divider"></li>
+                        <li>
+                            <a href="#">View All</a>
+                        </li>
+                    </ul>
+                </li>
+                <li class="dropdown">
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown"><i class="fa fa-user"></i> Sairam Nutheti <b class="caret"></b></a>
+                    <ul class="dropdown-menu">
+                        <li>
+                            <a href="#"><i class="fa fa-fw fa-user"></i>Edit Profile</a>
+                        </li>
+                        <!-- <li>
+                            <a href="#"><i class="fa fa-fw fa-envelope"></i> Inbox</a>
+                        </li> -->
+                        <li>
+                            <a href="#"><i class="fa fa-fw fa-gear"></i> Settings</a>
+                        </li>
+                        <li class="divider"></li>
+                        <li>
+                            <a href="#"><i class="fa fa-fw fa-power-off"></i> Log Out</a>
+                        </li>
+                    </ul>
+                </li>
+            </ul>
+         
+            <div class="collapse navbar-collapse navbar-ex1-collapse">
+			        
+                <ul class="nav navbar-nav side-nav" >
+					<li><h5 style="margin-top:15px;padding-left:20px;padding-bottom:10px;color:#fff;"><i class="fa fa-bars"></i> Navigation</h5></li>
+				
+						<li>
+                            <a href="/index"><i class="fa fa-dashboard fa-fw"></i> Dashboard</a>
+                        </li>
+					    <li>
+                            <a href="/schedule"><i class="fa fa-calendar fa-fw"></i> Create Schedule</a>							
+                        </li>
+                        <li class="active">
+						<a href="/editSchedule"><i class="fa fa-calendar fa-fw"></i> View Schedule </a>	
+						</li>
+						 <li>                            
+							 <a href="/createalert">Alert Types</a>
+                         </li>
+                          <li>                            
+							 <a href="/alerts">View Alerts</a>
+                         </li>
+						
+                        <li>
+    					 <a href="javascript:;" data-toggle="collapse" data-target="#demo"><i class="fa fa fa-money fa-fw"></i> Bills <i class="fa fa-fw fa-caret-down"></i></a>
+                            <ul class="nav nav-second-level collapse" id="demo">
+                                <li>
+                                    <a href="/generatebill">Generate Bill</a>
+                                </li>
+                                <li>
+                                    <a href="/viewbill">View Bill</a>
+                                </li>
+                            </ul>
+                            <!-- /.nav-second-level -->
+                        </li>      
+                </ul>
+            </div>
+            <!-- /.navbar-collapse -->
+        </nav>
+
+        <div id="page-wrapper">
+        	
+            <div class="container-fluid">  
+            <form name="log-form" id="log-form"  role="form" style="margin-left:15px;">          
+				 <div class="row" > 
+					  <div class="panel with-nav-tabs panel-default" style=""  > 
+							<div class="panel-heading"  id="top-menu"  >
+							  <ul class="nav nav-tabs" id="menu-tabs">
+                           <li class="active"><a href="/index" >Home</a></li>
+                            <li><a href="/createguard" >Guard</a></li>
+                           <li><a href="/createclient" >Client</a></li>   
+							  </ul>
+							 </div>
+					</div>
+			</div>
+			    
+                <div class="row">
+                    <div class="col-lg-12">                     
+                        <ol class="breadcrumb" id="header-page">
+                            <li>
+                                <i class="fa fa-plus-circle"></i>&nbsp;&nbsp;Schedules
+                            </li>
+                        </ol>
+                    </div>
+                </div>    
+                
+                <div class="row">
+               <!--  <div class="col-lg-12"  >
+                <img src="images/clients.jpg" alt="clients" style="width:100%;" border="2"  />
+                </div> -->
+                
+                	<div class="col-lg-12" style="padding-bottom:100px;" >      
+                		   <div id="schedulesgrid"></div>
+                		   
+           					 <div id="details"></div>
+                	</div>
+                </div>
+                    <div id="grid"></div>
+             <!-- /.panel-body -->
+             </form>
+             </div>      
+            <!-- /.container-fluid -->
+          	
+				
+        </div>
+        <!-- /#page-wrapper -->
+
+    </div>
+    <!-- /#wrapper -->
+
+
+<div class="modal fade bs-example-modal-lg" tabindex="-1" id="infoModal" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
+<div class="modal-dialog modal-lg" >
+    <div class="modal-content">
+		<div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+        <h4 class="modal-title" id="myModalLabel">Client Info</h4> 	
+		</div>
+				<ol class="breadcrumb" id="modalheader-page">
+                            <li>
+                                <i class="fa fa-plus-circle"></i>&nbsp;&nbsp; Edit Schedule
+                            </li>
+				</ol>	
+		<div style="margin-left:10px;"> <!-- custom -->     	 
+			 
+			 <div class="row" style="padding-bottom:50px;">
+							<div class="col-lg-12" >
+								<form name="log-form" id="log-form" class="form-horizontal" role="form" style="margin-left:15px;"  >
+									<div class="form-group">
+									<input type="hidden" id="idSchedule" />
+										 <h5>Building Name</h5>
+										 <input id="buildings" style="width: 400px;" name="buildings" validationMessage="Please Select Building" required />   
+										  <span class="k-invalid-msg" data-for="buildings"></span>        				
+										</div>
+									<div class="form-group">
+										<h5>Guard Name</h5>
+										 <input id="guardId" name="guardId" style="width: 400px;" required validationMessage="Please Select Guard" readOnly/> 
+										  <span class="k-invalid-msg" data-for="guardId"></span>
+									</div>    
+									<div class="form-group">
+										<h5>Start Time</h5>
+										 <input id="startTime" name="startTime" style="width: 400px;" data-type="date" pattern="\d{1,2}/\d{1,2}/\d{4}\s\d{1,2}:\d{2}\s([AP][M]{0,2})?$" required validationMessage="Please Select Valid Start Time" /> 
+										  <span class="k-invalid-msg" data-for="startTime"></span>
+									</div> 
+									<div class="form-group">
+										<h5>End Time</h5>
+										 <input id="endTime" name="endTime" style="width: 400px;"  data-type="date" pattern="\d{1,2}/\d{1,2}/\d{4}\s\d{1,2}:\d{2}\s([AP][M]{0,2})?$" required validationMessage="Please Select Valid End Time" /> 
+										  <span class="k-invalid-msg" data-for="endTime"></span>
+									</div> 
+										<div class="form-group">                				
+										 <input type="submit" class="k-button" value="Save" onclick="" />   
+										 <label> Note:Guard cannot be changed here. Delete Schedule and add new one If you want to change guard</label>                    				
+										</div>
+					  
+										
+										 <div class="form-group" style="display:none" id="success">   
+											<div class="alert alert-success " style="width:350px;">              				      
+											Schedule Updated Successfully!!</div>
+									  </div>
+									  <div class="form-group" style="display:none" id="erroralert">   
+											<div class="alert alert-danger" id="error" style="width:350px;">              				      
+										  </div>
+									  </div> 
+												  
+							 
+								</form>
+							 </div>
+					 </div>
+             
+     	</div><!-- custom -->    
+			      <div class="modal-footer">
+			        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+			        <!-- <button type="submit" class="btn btn-primary confirm" data-ng-click=saveSkill()>Save</button> -->
+			      </div>
+		
+			
+	 </div>
+	</div>		   
+  </div><!-- End -->
+     
+			
+
+
+
+
+    <!-- /#wrapper -->
+   <!-- jQuery -->
+    <script src="/js/jquery.min.js"></script>
+	 <script src="/kendojs/kendo.all.min.js"></script>
+    <script src="/kendojs/kendo.timezones.min.js"></script>
+	<script src="https://maps.googleapis.com/maps/api/js"></script>
+    <!-- Bootstrap Core JavaScript -->
+    <script src="/js/bootstrap.min.js"></script>
+  	  <!-- Metis Menu Plugin JavaScript -->
+    <script src="/js/metisMenu.min.js"></script>
+    <!-- Custom Theme JavaScript -->
+    <script src="/js/main.js"></script>
+
+	<script>
+ $(document).ready(function() {  
+ 
+	// $("#startTime").kendoDateTimePicker();
+	 
+	//  $("#endTime").kendoDateTimePicker();
+	  
+
+	   $("#buildings").kendoComboBox({
+                        placeholder: "Select Building",
+                        dataTextField: "buildingName",
+                        dataValueField: "buildingId",
+                        filter: "contains",
+                        autoBind: false,
+                        minLength: 1,
+                        dataSource: {
+                            type: "json",
+                            serverFiltering: false,
+                            transport: {
+                                read: {
+                                    url: "/getBuildings",
+                                }
+                                
+                            }
+                        }
+                    });
+                    
+           $("#guardId").kendoComboBox({
+                        placeholder: "Select Guard",
+                        dataTextField: "name",
+                        dataValueField: "guardId",
+                        filter: "contains",
+                        autoBind: false,
+                        minLength: 1,
+                        dataSource: {
+                            type: "json",
+                            serverFiltering: false,
+                            transport: {
+                                read: {
+                                    url: "/getguards",
+                                }
+                            }
+                        }
+                    });
+                       
+               
+ });
+ </script>
+ 
+   <script>
+$(document).ready(function () {
+
+	  
+	  
+	  function startChange() {
+                        var startDate = start.value(),
+                        endDate = end.value();
+
+                        if (startDate) {
+                            startDate = new Date(startDate);
+                            startDate.setDate(startDate.getDate());
+                            end.min(startDate);
+                        } else if (endDate) {
+                          //  start.max(new Date(endDate));
+                        } else {
+                            endDate = new Date();
+                            start.max(endDate);
+                            end.min(endDate);
+                        }
+                    }
+                    
+        function endChange() {
+                        var endDate = end.value(),
+                        startDate = start.value();
+
+                        if (endDate) {
+                            endDate = new Date(endDate);
+                            endDate.setDate(endDate.getDate());
+                            //start.max(endDate);
+                        } else if (startDate) {
+                            end.min(new Date(startDate));
+                        } else {
+                            endDate = new Date();
+                          //  start.max(endDate);
+                            end.min(endDate);
+                        }
+                    }
+       	   var start = $("#startTime").kendoDateTimePicker({
+                        change: startChange
+                    }).data("kendoDateTimePicker");
+
+                    var end = $("#endTime").kendoDateTimePicker({
+                        change: endChange
+                    }).data("kendoDateTimePicker");
+
+                   // start.max(end.value());
+                    end.min(start.value());  
+	  	
+});
+</script>
+             
+	
+	
+<script>       
+                
+      
+               $(document).ready(function () {
+                 
+                        dataSource = new kendo.data.DataSource({
+                            transport: {
+                                read:  {
+                                    url: "/getallschedules",
+                                    dataType: "json"
+                                },                              
+ 
+                                destroy:{
+                                 url: "/deleteschedule",
+                                    dataType: "json",
+                                    type:"post"
+                                },
+                                parameterMap: function(options, operation) {
+                                    if (operation !== "read" && options.models) {
+                                        return {models: kendo.stringify(options.models)};
+                                    }
+                                }
+                            },
+                            batch: true,
+                            pageSize: 20,
+                            schema: {
+                                model: {
+                                    id: "idschedule",
+                                    fields: {
+                                        idschedule: { editable: false, nullable: true },
+                                        buildingId: { validation: { required: true } },
+                                        buildingName:{validation:{required:true}},
+                                        name:{validation:{required:true}},
+                                        guardId: { type: "number", validation: { required: true, min: 1} },
+                                        startTime: { type: "date", },
+                                        endTime: { type: "date", validation: { min: 0, required: true } }
+                                    }
+                                }
+                            }
+                        });
+
+                    $("#schedulesgrid").kendoGrid({
+                        dataSource: dataSource,
+                        pageable: true,
+                        groupable:true,
+                        filterable:true,
+                        height: 550,                        
+                        columns: [
+                            { field:"idschedule", title: "Product Name" ,hidden:true},
+                               { field:"buildingId", title: "Builiding Id " ,hidden:true},
+                               { field:"guardId", title: "Guard Id " ,hidden:true},
+                            { field: "buildingName", title:"Building Name" },
+                            { field: "name", title:"Guard Name"},
+                            { field: "startTime" , template:"#= kendo.toString(new Date(startTime).toLocaleString(), 'MM/dd/yyyy HH:mm:ss')#"},
+                            { field:"endTime",template:" #= kendo.toString(new Date(endTime).toLocaleString(), 'MM/dd/yyyy HH:mm:ss')#"},
+                            { command: [{ text: "Edit", click: editSchedule }, "destroy"], title: "&nbsp;", width: "250px" }],
+                       editable: "popup"
+                    });
+                    
+                  
+     
+ function editSchedule(e) 
+{         e.preventDefault();          
+          var dataItem = this.dataItem($(e.currentTarget).closest("tr"));
+          var idschedule=dataItem.idschedule;   
+          var startTime=dataItem.startTime;
+          var endTime=dataItem.endTime;
+          var buildingId=dataItem.buildingId;
+          var guardId=dataItem.guardId;
+         //alert(idschedule);    
+		  var buildings = $("#buildings").data("kendoComboBox");
+       buildings.value(buildingId);  
+       var guard=$("#guardId").data("kendoComboBox");
+        guard.value(guardId); 
+          var datepicker1 = $("#startTime").data("kendoDateTimePicker");
+          datepicker1.value(startTime);
+          var datepicker2 = $("#endTime").data("kendoDateTimePicker");
+          datepicker2.value(endTime);
+          $('#idSchedule').val(idschedule);
+        $('#infoModal').modal('show');
+       
+		 var validator = $("#log-form").kendoValidator().data("kendoValidator")  ;
+		
+      
+} 
+          
+/* function deleteSchedule(e) 
+{         e.preventDefault();          
+         var dataItem = this.dataItem($(e.currentTarget).closest("tr"));
+        var idschedule=dataItem.idschedule;  
+               
+} */ 
+                
+                });
+            </script>  
+            
+   <script>
+$(document).ready(function () {
+ var validator = $('form').kendoValidator().data("kendoValidator")  ;       
+  $('form').submit(function(e){
+     
+		     e.preventDefault()
+  e.stopPropagation()
+	
+          var idschedule=$('#idSchedule').val();   
+           var st = $("#startTime").data("kendoDateTimePicker");
+		var stValue = st.value();
+         	var startTime=kendo.toString(stValue, 'MM/dd/yyyy HH:mm:ss') ;	 
+	  	 var ed = $("#endTime").data("kendoDateTimePicker");
+		var edValue = ed.value();
+	  	var endTime=kendo.toString(edValue, 'MM/dd/yyyy HH:mm:ss') ;	 
+	//  alert(endTime)
+	  	var buildingId=$('#buildings').data("kendoComboBox").value();
+		var guardId=$('#guardId').data("kendoComboBox").value();
+	      // alert(guardId+","+buildingId+","+idschedule);
+	        if(validator.validate() && buildingId>0 && guardId>0)
+	 	{
+		        $.ajax({		
+					method: 'post',
+					 url: '/editschedule',
+					data: { "buildingId":buildingId,"startTime":startTime	,"endTime":endTime,"idschedule":idschedule}
+				})
+				.success(function(response){		
+							if(response.status!=undefined)
+				         				{	        
+				         				$("#erroralert").hide();   
+				         				$('#log-form')[0].reset();				
+				         				$('#infoModal').modal('hide');
+				         				
+				         				}	         				
+				         				else{		         				  
+				         				//$("#success").hide();  	         				      				         							  						
+				         				document.getElementById("error").innerHTML = "Error:"+response.error;
+				         				document.getElementById('erroralert').style.display = "block";
+				         				}				
+				}).error(function(error){
+						
+						document.getElementById("error").innerHTML = "Error:"+error;
+			         		document.getElementById('erroralert').style.display = "block";							
+				});	
+				
+				
+			}
+			else{
+			
+			 alert("Cannot Schedule with Invalid Data");
+			}	
+		});
+});
+</script>
+      
+</body>
+
+</html>

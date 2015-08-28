@@ -1,0 +1,516 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <title>Create Guard</title>
+	<link rel="icon" href="images/favicon.ico">
+    <!-- Bootstrap Core CSS -->
+    <link href="/css/bootstrap.css" rel="stylesheet">
+
+    <!-- Custom CSS -->
+    <link href="/css/admin.css" rel="stylesheet">
+
+    <!-- Morris Charts CSS -->
+    <link href="/css/plugins/morris.css" rel="stylesheet">
+<!-- Custom Fonts -->
+<    <link href="/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">	
+    		 <link rel="stylesheet" href="/styles/kendo.common.min.css" />
+    <link rel="stylesheet" href="/styles/kendo.moonlight.min.css" />
+    <link rel="stylesheet" href="/styles/kendo.dataviz.min.css" />
+    <link rel="stylesheet" href="/styles/kendo.dataviz.moonlight.min.css" />
+    <link rel="stylesheet" href="/styles/kendo.moonlight.mobile.min.css" /> 
+    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+        <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+        <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+	<style>
+	#header-page{
+	background-image: url("textures/brushed-metal.png");
+  background-image: url("textures/brushed-metal.png"),-webkit-linear-gradient(top,#2f3640 0,#212a33 100%);
+  background-image: url("textures/brushed-metal.png"),-moz-linear-gradient(top,#2f3640 0,#212a33 100%);
+  background-image: url("textures/brushed-metal.png"),-o-linear-gradient(top,#2f3640 0,#212a33 100%);
+  background-image: url("textures/brushed-metal.png"),linear-gradient(to bottom,#2f3640 0,#212a33 100%);
+  background-position: 50% 50%;
+  background-color: #212a33;
+  border-color: #171e28;
+  color:#fff;
+  }
+  	#modalheader-page{
+	margin-left:5px;
+	margin-right:5px;
+	background-image: url("textures/brushed-metal.png");
+  background-image: url("textures/brushed-metal.png"),-webkit-linear-gradient(top,#2f3640 0,#212a33 100%);
+  background-image: url("textures/brushed-metal.png"),-moz-linear-gradient(top,#2f3640 0,#212a33 100%);
+  background-image: url("textures/brushed-metal.png"),-o-linear-gradient(top,#2f3640 0,#212a33 100%);
+  background-image: url("textures/brushed-metal.png"),linear-gradient(to bottom,#2f3640 0,#212a33 100%);
+  background-position: 50% 50%;
+  background-color: #212a33;
+  border-color: #171e28;
+  color:#fff;
+	}
+  
+  #pvGrid .k-grid-header .k-header
+{
+      color: #ee9f05;
+}
+  #incidentGrid .k-grid-header .k-header
+{
+      color: #ee9f05;
+}
+  #csGrid .k-grid-header .k-header
+{
+      color: #ee9f05;
+}
+  #msGrid .k-grid-header .k-header
+{
+      color: #ee9f05;
+}
+
+h5{
+font-weight:bold;
+font-size:14px;
+}
+	</style>
+</head>
+
+<body>
+
+    <div id="wrapper">
+        <!-- Navigation -->
+        <nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+            <!-- Brand and toggle get grouped for better mobile display -->
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-ex1-collapse">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+          <a class="navbar-brand" href="index" style=""><img src="/images/logos2.png" style="height:40px;width:120px;"/></a>
+            </div>
+            <!-- Top Menu Items -->
+            <ul class="nav navbar-right top-nav">
+                <li class="dropdown">
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown"><i class="fa fa-envelope"></i> <b class="caret"></b></a>
+                    <ul class="dropdown-menu message-dropdown">
+                        <li class="message-preview">
+                            <a href="#">
+                                <div class="media">
+                                    <span class="pull-left">
+                                      
+                                    </span>
+                                    <div class="media-body">
+                                        <h5 class="media-heading"><strong>John Smith</strong>
+                                        </h5>
+                                        <p class="small text-muted"><i class="fa fa-clock-o"></i> Yesterday at 4:32 PM</p>
+                                        <p>Lorem ipsum dolor sit amet, consectetur...</p>
+                                    </div>
+                                </div>
+                            </a>
+                        </li>
+                        <li class="message-preview">
+                            <a href="#">
+                                <div class="media">
+                                    <span class="pull-left">
+                                        <img class="media-object" src="http://placehold.it/50x50" alt="">
+                                    </span>
+                                    <div class="media-body">
+                                        <h5 class="media-heading"><strong>John Smith</strong>
+                                        </h5>
+                                        <p class="small text-muted"><i class="fa fa-clock-o"></i> Yesterday at 4:32 PM</p>
+                                        <p>Lorem ipsum dolor sit amet, consectetur...</p>
+                                    </div>
+                                </div>
+                            </a>
+                        </li>
+                        <li class="message-preview">
+                            <a href="#">
+                                <div class="media">
+                                    <span class="pull-left">
+                                        <img class="media-object" src="http://placehold.it/50x50" alt="">
+                                    </span>
+                                    <div class="media-body">
+                                        <h5 class="media-heading"><strong>John Smith</strong>
+                                        </h5>
+                                        <p class="small text-muted"><i class="fa fa-clock-o"></i> Yesterday at 4:32 PM</p>
+                                        <p>Lorem ipsum dolor sit amet, consectetur...</p>
+                                    </div>
+                                </div>
+                            </a>
+                        </li>
+                        <li class="message-footer">
+                            <a href="#">Read All New Messages</a>
+                        </li>
+                    </ul>
+                </li>
+                <li class="dropdown">
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown"><i class="fa fa-bell"></i> <b class="caret"></b></a>
+                    <ul class="dropdown-menu alert-dropdown">
+                        <li>
+                            <a href="#">Alert Name <span class="label label-default">Alert Badge</span></a>
+                        </li>
+                        <li>
+                            <a href="#">Alert Name <span class="label label-primary">Alert Badge</span></a>
+                        </li>
+                        <li>
+                            <a href="#">Alert Name <span class="label label-success">Alert Badge</span></a>
+                        </li>
+                        <li>
+                            <a href="#">Alert Name <span class="label label-info">Alert Badge</span></a>
+                        </li>
+                        <li>
+                            <a href="#">Alert Name <span class="label label-warning">Alert Badge</span></a>
+                        </li>
+                        <li>
+                            <a href="#">Alert Name <span class="label label-danger">Alert Badge</span></a>
+                        </li>
+                        <li class="divider"></li>
+                        <li>
+                            <a href="#">View All</a>
+                        </li>
+                    </ul>
+                </li>
+                <li class="dropdown">
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown"><i class="fa fa-user"></i> Sairam Nutheti <b class="caret"></b></a>
+                    <ul class="dropdown-menu">
+                        <li>
+                            <a href="#"><i class="fa fa-fw fa-user"></i>Edit Profile</a>
+                        </li>
+                        <!-- <li>
+                            <a href="#"><i class="fa fa-fw fa-envelope"></i> Inbox</a>
+                        </li> -->
+                        <li>
+                            <a href="#"><i class="fa fa-fw fa-gear"></i> Settings</a>
+                        </li>
+                        <li class="divider"></li>
+                        <li>
+                            <a href="#"><i class="fa fa-fw fa-power-off"></i> Log Out</a>
+                        </li>
+                    </ul>
+                </li>
+            </ul>
+         
+            <div class="collapse navbar-collapse navbar-ex1-collapse">
+			
+                <ul class="nav navbar-nav side-nav" >
+					<li><h5 style="margin-top:15px;padding-left:20px;padding-bottom:10px;color:#fff;"><i class="fa fa-bars"></i> Navigation</h5></li>
+						<li class="active">
+                            <a href="/createguard"><i class="fa fa-plus-circle"></i> Create Guard</a>
+                        </li>
+					  <!--   <li>
+					                                <a href="/editguard"><i class="fa fa-pencil-square-o"></i> Edit Guard</a>							
+					                            </li> -->
+						 <li>
+                            <a href="/listguards"><i class="fa fa-list"></i> List</a>                                                      
+                        </li>	
+						<li>
+                            <a href="/reports"><i class="fa fa-bar-chart-o fa-fw"></i> View Reports</a>                                                      
+                        </li>		
+						<!-- <li>
+						                            <a href="/maps"><i class="fa fa-map-marker"></i> Locate Guard</a>                                                      
+						                        </li>	 -->						
+                </ul>
+            </div>
+            <!-- /.navbar-collapse -->
+        </nav>
+
+
+			<div id="page-wrapper">
+        	
+            <div class="container-fluid" >  
+            <form name="log-form" id="log-form"  role="form" style="margin-left:15px;">          
+				 <div class="row"  > 
+					  <div class="panel with-nav-tabs panel-default" style=""  > 
+							<div class="panel-heading"  id="top-menu"  >
+							  <ul class="nav nav-tabs" id="menu-tabs">
+                           <li><a href="/index" >Home</a></li>
+                            <li class="active"><a href="/createguard" >Guard</a></li>
+                           <li><a href="/createclient" >Client</a></li>   
+							  </ul>
+							 </div>
+					</div>
+			</div>
+			    
+                     <div class="row">
+                    <div class="col-lg-12">                     
+                        <ol class="breadcrumb" id="header-page">
+                            <li>
+                                <i class="fa fa-plus-circle"></i>&nbsp;&nbsp;Guard General Info
+                            </li>
+                        </ol>
+                    </div>
+                </div>    
+                
+                <div class="row" style="padding-bottom:10px;">                 	
+                	<div class="col-md-4">   
+                		<div class="form-group">
+                				 <h5>Guard ID</h5>
+                				 <input type="text" id="guardID" class="form-control" style="width: 350px;" placeholder="000-00-0000" name="guardID" tabindex="1"	 pattern="^\d{3}-\d{2}-\d{4}$" validationMessage="ID must be in SSN Format" required />   
+                				  <span class="k-invalid-msg" data-for="guardID"></span>        				
+                		</div>
+                		<div class="form-group">
+                				   <h5>Email</h5>
+                				 <input type="email" id="email" class="form-control" style="width: 350px;" name="email" tabindex="5" validationMessage="Please Enter Email" required />   
+                				  <span class="k-invalid-msg" data-for="email"></span>        				              	   
+              			</div> 
+                		
+                	</div>
+                	<div class="col-md-4">                  		
+              			<div class="form-group">
+                				 <h5>Start Date</h5>
+                				 <input  id="startdate"  style="width: 350px;" name="startdate" data-type="date" validationMessage="Enter Valid Date" tabindex="2" required />   
+                				  <span class="k-invalid-msg" data-for="startdate"></span>        				
+                		</div>
+                		<div class="form-group">
+                				
+                				  <h5>Password</h5>
+                				<input type=password id="password" name="password" class="form-control" tabindex="6"  style="width: 350px;" validationMessage="Please Enter Password" required /> 
+                				  <span class="k-invalid-msg" data-for="password"></span>         				
+                		</div>  
+                	</div>
+                	
+                	<div class="col-md-4">
+                			<div class="form-group">
+                				<h5>End Date</h5>                				
+                				<input " id="enddate" name="enddate" style="width: 350px;" validationMessage="Enter Valid Date" tabindex="3" data-type="date" required /> 
+                				<span class="k-invalid-msg" data-for="enddate"></span>              				              	   
+              				</div>    
+              				   <div class="form-group">
+                				   
+                				  Is Background Check Done                				    				
+                				<input type="checkbox" id="status" name="status" style="width: 350px;" tabindex="4"  validationMessage="Background Status Required" required /> 
+                				  <span class="k-invalid-msg" data-for="status"></span>     
+                			</div>          	   
+                	</div>
+                	
+                </div>
+                
+			
+                <!-- Page Heading -->
+                <div class="row">
+                    <div class="col-lg-12" >                     
+                        <ol class="breadcrumb" id="header-page">
+                            <li>
+                                <i class="fa fa-plus-circle"></i>&nbsp;&nbsp; Personal Info
+                            </li>
+                        </ol>
+                    </div>
+                </div>  
+			            
+                   
+               
+                
+              <div class="row">                 	
+                	<div class="col-md-4"> 
+                				<div class="form-group">
+                				 <h5>First Name</h5>
+                				 <input type="text" class="form-control" id="firstName" name="firstName" tabindex="7"  validationMessage="Please Enter Firstname" style="width:350px;" required />
+                				  <span class="k-invalid-msg" data-for="firstName"></span>                  				
+                				</div>               		
+                				<div class="form-group">
+                				 <h5>Address Line1</h5>
+                				 <input type="text" class="form-control" id="addressline1" name="addressline1" tabindex="10" validationMessage="Please Enter Address Line1" style="width:350px;" required />
+                				  <span class="k-invalid-msg" data-for="addressline1"></span>                  				
+                				</div>
+                				  
+                				<div class="form-group">
+                				 <h5>Zip Code</h5>
+                				 <input type="text" id="zip" class="form-control" style="width: 350px;" pattern="^[0-9]{5}(?:-[0-9]{4})?$" tabindex="13" name="zip" validationMessage="Enter Valid Zip" required />   
+                				  <span class="k-invalid-msg" data-for="zip"></span>        				
+                				</div>  
+                				
+                			 				           			
+                	</div>
+              		<div class="col-md-4"> 
+              			<div class="form-group">
+                				 <h5>Last Name</h5>
+                				 <input type="text" class="form-control"  id="lastName" name="lastName" tabindex="8" validationMessage="Please Enter Lastname" style="width:350px;" required />
+                				  <span class="k-invalid-msg" data-for="lastName"></span>                  				
+                	   </div>
+              			<div class="form-group">
+                				 <h5>Address Line2</h5>
+                				 <input type="text" class="form-control" autocomplete="off" id="addressline2" name="addressline2"  tabindex="11" style="width:350px;"  />
+                				  <span class="k-invalid-msg" data-for="addressline2"></span>                  				
+                	   </div> 
+                	   <div class="form-group">
+                				<h5>State</h5>
+                				<input id="state" name="state"  style="width: 350px;" validationMessage="Select State" tabindex="14" required /> 
+                				  <span class="k-invalid-msg" data-for="state"></span>     
+                				              	   
+              			</div> 
+              			  
+              			
+              		     
+                	</div> <!-- End of column -->
+                	
+                	<div class="col-md-4"> 
+                		<div class="form-group">
+                				<h5>Phone Number</h5>
+                				<input type="text" id="phno" name="phno" class="form-control"  tabindex="9" style="width: 350px;" pattern="(?:\(\d{3}\)|\d{3})[- ]?\d{3}[- ]?\d{4}"" validationMessage="Enter Phone Number" required /> 
+                				  <span class="k-invalid-msg" data-for="phno"></span>              				              	   
+              			</div> 
+              			
+              			<div class="form-group">
+                				 <h5>City</h5>
+                				 <input type="text" id="city" class="form-control" style="width: 350px;" tabindex="12" name="city"  required />   
+                				  <span class="k-invalid-msg" data-for="city"></span>        				
+                		</div> 
+              			  
+                	</div>
+                	
+                </div>
+                 
+                <div class="row" style="padding-bottom:120px;">
+                	<div class="col-md-8">
+                			<div class="form-group">                				
+                				 <input type="submit" tabindex="15" class="k-button" data-role="button" value="Create" />                				
+                			</div> 
+                	</div>
+                </div>   
+                
+                <div class="row">
+                	<div class="col-md-8"> 
+                				
+               					 <div class="form-group" style="display:none" id="success">   
+              				        <div class="alert alert-success " style="width:350px;">              				      
+              				        Guard Created Successfully!!</div>
+              				  </div>
+              				  <div class="form-group" style="display:none" id="erroralert">   
+              				        <div class="alert alert-danger" id="error" style="width:350px;">              				      
+              				      </div>
+              				  </div> 
+              		</div>             				  
+                </div>           
+				
+             <!-- /.panel-body -->
+             </form>
+             </div>          
+            <!-- /.container-fluid -->
+
+        </div>
+        <!-- /#page-wrapper -->
+
+    </div>
+    <!-- /#wrapper -->
+
+   <!-- jQuery -->
+    <script src="/js/jquery.min.js"></script>
+	 <script src="/kendojs/kendo.all.min.js"></script>
+    <script src="/kendojs/kendo.timezones.min.js"></script>
+	<script src="https://maps.googleapis.com/maps/api/js"></script>
+    <!-- Bootstrap Core JavaScript -->
+    <script src="/js/bootstrap.min.js"></script>
+  	  <!-- Metis Menu Plugin JavaScript -->
+    <script src="/js/metisMenu.min.js"></script>
+    <!-- Custom Theme JavaScript -->
+    <script src="/js/main.js"></script>
+   <script>
+	var statedataSource = new kendo.data.DataSource({
+  transport: {
+    read: {
+      url: "/getStates",
+      dataType: "json"
+    }
+  }
+  });
+	$("#state").kendoAutoComplete({
+  dataSource: statedataSource,
+  dataTextField: "name"
+});
+</script>
+ 
+ 
+ 
+ <script>
+
+$(document).ready(function () {
+
+	$("#startdate").kendoDatePicker();
+	$("#enddate").kendoDatePicker();
+	
+	});
+	
+	
+	</script>
+   <script>
+   
+$(document).ready(function () {
+$( "#log-form" ).change(function() {
+ $("#success").hide();  	 
+  $("#erroralert").hide(); 
+});
+
+ var validator = $("#log-form").kendoValidator().data("kendoValidator")  ;	
+	$("#log-form").submit(function(e){
+	e.preventDefault();
+	var email=$('#email').val();
+	var password=$('#password').val();
+	var firstName=$('#firstName').val();
+	var lastName=$('#lastName').val();
+	var addressLine1=$('#addressline1').val();
+	var addressLine2=$('#addressline2').val();
+	var city=$('#city').val();
+	// var currency=$('#serviceFee').data("kendoNumericTextBox");	   
+	 var status=$('#status').is(":checked")==true?1:0;
+	 //alert(status);
+	var autocomplete=$('#state').data("kendoAutoComplete");
+	var state=autocomplete.value();
+
+	var zipCode=$('#zip').val();
+	var phoneNumber=$('#phno').val();
+	var userSSN=$('#guardID').val();
+		
+	var datepicker1 = $("#startdate").data("kendoDatePicker");
+	var value1 = datepicker1.value();
+	  var startDate=kendo.toString(value1, 'MM/dd/yyyy') ;
+	  var datepicker2 = $("#enddate").data("kendoDatePicker");
+	var value2 = datepicker2.value();
+	  var endDate=kendo.toString(value2, 'MM/dd/yyyy') ;
+	  
+	  if(validator.validate())
+		{
+		 $.ajax({		
+	 	 method: 'post',
+		  url: '/createguard',
+		  data: { "email":email,"password":password,"firstName":firstName,"lastName":lastName,
+		  			"addressLine1":addressLine1,"addressLine2":addressLine2,"city":city,"state":state,"zipCode":zipCode,
+		  			"phoneNumber":phoneNumber,"userSSN":userSSN,"startDate":startDate,"endDate":endDate,"status":status,"roleId":3
+		  		}
+		})
+		.success(function(response){	
+							if(response.msg!=undefined)
+	         				{	        
+	         				$("#erroralert").hide();	         								
+	         				document.getElementById('success').style.display = "block";
+	         					$('#log-form')[0].reset();
+	         				}	         				
+	         				else{		         				  
+	         				$("#success").hide();  	         				      				         							  						
+	         				document.getElementById("error").innerHTML ="Error:"+ response.error;
+	         				document.getElementById('erroralert').style.display = "block";
+	         				}					
+		})
+		.error(function(error){
+						$("#success").hide();  	         				      				         							  						
+	         				document.getElementById("error").innerHTML = "Error Occured in Server:"+error;
+	         				document.getElementById('erroralert').style.display = "block";
+		 });
+	 }
+	  
+	  
+	  
+	});
+});//end of document ready
+   </script>
+	
+</body>
+
+</html>

@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Untitled</title>
+
+    <link rel="stylesheet" href="http://cdn.kendostatic.com/2015.1.408/styles/kendo.common.min.css">
+    <link rel="stylesheet" href="http://cdn.kendostatic.com/2015.1.408/styles/kendo.rtl.min.css">
+    <link rel="stylesheet" href="http://cdn.kendostatic.com/2015.1.408/styles/kendo.default.min.css">
+    <link rel="stylesheet" href="http://cdn.kendostatic.com/2015.1.408/styles/kendo.dataviz.min.css">
+    <link rel="stylesheet" href="http://cdn.kendostatic.com/2015.1.408/styles/kendo.dataviz.default.min.css">
+    <link rel="stylesheet" href="http://cdn.kendostatic.com/2015.1.408/styles/kendo.mobile.all.min.css">
+
+    <script src="http://code.jquery.com/jquery-1.9.1.min.js"></script>
+    <script src="http://cdn.kendostatic.com/2015.1.408/js/angular.min.js"></script>
+    <script src="http://cdn.kendostatic.com/2015.1.408/js/jszip.min.js"></script>
+    <script src="http://cdn.kendostatic.com/2015.1.408/js/kendo.all.min.js"></script></head>
+  <body>
+    <div id="scheduler"></div>
+    <script>
+    	
+      $(function() {
+      
+          var dataSource = new kendo.data.DataSource({
+  transport: {
+    read: {
+      url: "/viewSchedule"
+     
+    }
+  }
+});
+            
+     alert(JSON.stringify(dataSource));
+      
+      
+        $("#scheduler").kendoScheduler({
+          date: new Date(),
+          startTime: new Date("2013/6/13 06:00 AM"),
+          height: 600,
+          views: ["day", {
+            type: "workWeek",
+            selected: true
+          }, "week", "month", "agenda", {
+            type: "timeline",
+            eventHeight: 50
+          }],
+          editable: false,
+          dataSource: {
+            transport: {	
+              read:  function(e) {
+                e.success( dataSource.toJSON());
+              },
+              parameterMap: function(options, operation) {
+                if (operation !== "read" && options.models) {
+                  return {
+                    models: kendo.stringify(options.models)
+                  };
+                }
+              }
+            },
+            schema: {
+              id: "taskId",
+              model: {
+                fields: {
+                  taskId: {
+                    from: "idschedule",
+                    type: "number"
+                  },
+                  title: {
+                    from: "title",
+                    defaultValue: "No title"
+                  },
+                  start: {
+                    type: "date",
+                    from: "start"
+                  },
+                  end: {
+                    type: "date",
+                    from: "end"
+                  }
+                }
+              }
+            }
+          }
+        });
+      });
+    </script>
+  </body>
+</html>

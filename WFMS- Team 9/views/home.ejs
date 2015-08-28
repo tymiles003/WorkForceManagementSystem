@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang='en'>
+<head>
+    <meta charset="UTF-8" /> 
+    <title>
+        Home
+    </title>
+
+	<link rel="icon" href="images/favicon.ico">
+    <!-- Custom Fonts -->
+    <link href="/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">	
+		<!--  <link rel="stylesheet" href="/styles/kendo.common.min.css" />
+		     <link rel="stylesheet" href="/styles/kendo.moonlight.min.css" />
+		     <link rel="stylesheet" href="/styles/kendo.dataviz.min.css" />
+		     <link rel="stylesheet" href="/styles/kendo.dataviz.moonlight.min.css" /> -->
+		     <link rel="stylesheet" href="http://cdn.kendostatic.com/2015.1.429/styles/kendo.common.min.css" />
+    <link rel="stylesheet" href="http://cdn.kendostatic.com/2015.1.429/styles/kendo.moonlight.min.css" />
+    <link rel="stylesheet" href="http://cdn.kendostatic.com/2015.1.429/styles/kendo.dataviz.min.css" />
+    <link rel="stylesheet" href="http://cdn.kendostatic.com/2015.1.429/styles/kendo.dataviz.moonlight.min.css" />
+
+    <script src="http://cdn.kendostatic.com/2015.1.429/js/jquery.min.js"></script>
+    <script src="http://cdn.kendostatic.com/2015.1.429/js/kendo.all.min.js"></script>
+    <link rel="stylesheet" href="/styles/kendo.moonlight.mobile.min.css" />
+    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+        <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+        <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+    <link rel="stylesheet" type="text/css" href="/css/style.css" />
+    
+    <style>
+    #role
+    {
+  width: 100%;
+  padding: 8px 5px;
+  background: linear-gradient(#1f2124, #27292c);
+  border: 1px solid #222;
+  box-shadow: 0 1px 0 rgba(255,255,255,0.1);
+  border-radius: 0.3em;
+  margin-bottom: 20px;
+  color:#fff;
+  }
+   .roles option
+   {
+   background-color:#000;
+   }
+    </style>
+</head>
+<body>
+<div style="margin-left:40%;margin-right:50%">
+<img src="images/logos2.png" id="logo" align="center" style="height:40px;width:120px"/>
+</div>
+  <form role="form"  name="log-form" id="log-form" Method="post" action="/"> 
+  <h1> Log IN</h1>
+  <div class="inset">
+  <p>
+    <label for="email">EMAIL ADDRESS</label>
+    <input type="text" name="email" id="email" required>
+  </p>
+  <p>
+    <label for="password">PASSWORD</label>
+    <input type="password" name="password" id="password" required>
+  </p>
+  <!-- <p>
+    <input type="checkbox" name="remember" id="remember">
+    <label for="remember">Remember me for 14 days</label>
+  </p> -->
+  <p >
+ <label for="role">Sign In As</label>
+    <select name="role" id="role"  >
+    	   <optgroup  class="roles">
+				    <option value="1">Admin</option>
+				    <option value="2">Client</option>
+				    <option value="3">Guard</option>
+			</optgroup>
+    </select>
+  </p>
+  <p class="p-container" >
+    <!-- <span>Forgot password ?</span> -->
+    <input type="submit" name="go" id="go" value="Log in">
+  </p>
+</form>
+
+
+   <!-- jQuery -->
+    <script src="/js/jquery.min.js"></script>
+	 <script src="/kendojs/kendo.all.min.js"></script>
+    <script src="/kendojs/kendo.timezones.min.js"></script>
+	<script src="https://maps.googleapis.com/maps/api/js"></script>
+    <!-- Bootstrap Core JavaScript -->
+    <script src="/js/bootstrap.min.js"></script>
+  	  <!-- Metis Menu Plugin JavaScript -->
+    <script src="/js/metisMenu.min.js"></script>
+    <!-- Custom Theme JavaScript -->
+    <script src="/js/main.js"></script>
+
+<script>
+$(document).ready(function () {
+ var validator = $("#log-form").kendoValidator().data("kendoValidator")  ;
+  $("#log-form").submit(function(e){
+	    e.preventDefault();	  
+	 email=$('#email').val();
+	 password=$('#password').val();
+	roleId=$('#role').val();
+	
+		 	
+	 	if(validator.validate())
+	 	{
+	 			  	
+			 $.ajax({		
+		 	 method: 'post',
+			  url: '/validate',
+			  data: { "email":email,"password":password,"roleId":roleId}
+			})
+			.success(function(response){	
+								if(response.error==undefined)
+		         				{	     
+			         				if(response.roleid==1)
+			         				{
+			         				 window.location='\index';
+			         				}
+			         				else if(response.roleid==2)
+			         				{
+			         				window.location='\myalerts';
+			         				}
+			         				else if(response.roleid==3)
+			         				{
+			         				window.location='\guard';
+			         				}
+		         				}	         				
+		         				else{		      
+		         				alert(response.error);   				  
+		         				$("#success").hide();  	         				      				         							  						
+		         				document.getElementById("error").innerHTML = "Error:"+response.error;
+		         				document.getElementById('erroralert').style.display = "block";
+		         				}					
+			})
+			.error(function(error){
+							$("#success").hide();  	         				      				         							  						
+		         				document.getElementById("error").innerHTML = "Error:"+error;
+		         				document.getElementById('erroralert').style.display = "block";
+			 });
+		 }
+	  });	    
+	  	
+});
+</script>
+
+
+</body>
+</html>

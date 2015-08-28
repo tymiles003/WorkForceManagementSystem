@@ -1,0 +1,459 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <title>Create Building</title>
+	<link rel="icon" href="images/favicon.ico">
+    <!-- Bootstrap Core CSS -->
+    <link href="/css/bootstrap.css" rel="stylesheet">
+<link rel="icon" href="images/favicon.ico">
+    <!-- Bootstrap Core CSS -->
+    <link href="/css/bootstrap.css" rel="stylesheet">
+
+    <!-- Custom CSS -->
+    <link href="/css/admin.css" rel="stylesheet">
+
+    <!-- Morris Charts CSS -->
+    <link href="/css/plugins/morris.css" rel="stylesheet">
+
+    <!-- Custom Fonts -->
+    <link href="/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+	    <script src="/js/angular.min.js"></script>
+
+	 <link rel="stylesheet" href="/styles/kendo.common.min.css" />
+    <link rel="stylesheet" href="/styles/kendo.moonlight.min.css" />
+    <link rel="stylesheet" href="/styles/kendo.dataviz.min.css" />
+    <link rel="stylesheet" href="/styles/kendo.dataviz.moonlight.min.css" />
+    <link rel="stylesheet" href="/styles/kendo.moonlight.mobile.min.css" />
+    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+        <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+        <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+	<style>
+	#header-page{
+	background-image: url("textures/brushed-metal.png");
+  background-image: url("textures/brushed-metal.png"),-webkit-linear-gradient(top,#2f3640 0,#212a33 100%);
+  background-image: url("textures/brushed-metal.png"),-moz-linear-gradient(top,#2f3640 0,#212a33 100%);
+  background-image: url("textures/brushed-metal.png"),-o-linear-gradient(top,#2f3640 0,#212a33 100%);
+  background-image: url("textures/brushed-metal.png"),linear-gradient(to bottom,#2f3640 0,#212a33 100%);
+  background-position: 50% 50%;
+  background-color: #212a33;
+  border-color: #171e28;
+  }
+  
+  
+  #pvGrid .k-grid-header .k-header
+{
+      color: #ee9f05;
+}
+  #incidentGrid .k-grid-header .k-header
+{
+      color: #ee9f05;
+}
+  #csGrid .k-grid-header .k-header
+{
+      color: #ee9f05;
+}
+  #msGrid .k-grid-header .k-header
+{
+      color: #ee9f05;
+}
+
+h5{
+font-weight:bold;
+font-size:14px;
+}
+	</style>
+</head>
+
+<body>
+
+    <div id="wrapper">
+
+        <!-- Navigation -->
+        <nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+            <!-- Brand and toggle get grouped for better mobile display -->
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-ex1-collapse">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a class="navbar-brand" href="index" style=""><img src="images/logos2.png" style="height:40px;width:120px;"/></a>
+            </div>
+            <!-- Top Menu Items -->
+            <ul class="nav navbar-right top-nav">
+                <li class="dropdown">
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown"><i class="fa fa-envelope"></i> <b class="caret"></b></a>
+                    <ul class="dropdown-menu message-dropdown">
+                        <li class="message-preview">
+                            <a href="#">
+                                <div class="media">
+                                    <span class="pull-left">
+                                      
+                                    </span>
+                                    <div class="media-body">
+                                        <h5 class="media-heading"><strong>John Smith</strong>
+                                        </h5>
+                                        <p class="small text-muted"><i class="fa fa-clock-o"></i> Yesterday at 4:32 PM</p>
+                                        <p>Lorem ipsum dolor sit amet, consectetur...</p>
+                                    </div>
+                                </div>
+                            </a>
+                        </li>
+                        <li class="message-preview">
+                            <a href="#">
+                                <div class="media">
+                                    <span class="pull-left">
+                                        <img class="media-object" src="http://placehold.it/50x50" alt="">
+                                    </span>
+                                    <div class="media-body">
+                                        <h5 class="media-heading"><strong>John Smith</strong>
+                                        </h5>
+                                        <p class="small text-muted"><i class="fa fa-clock-o"></i> Yesterday at 4:32 PM</p>
+                                        <p>Lorem ipsum dolor sit amet, consectetur...</p>
+                                    </div>
+                                </div>
+                            </a>
+                        </li>
+                        <li class="message-preview">
+                            <a href="#">
+                                <div class="media">
+                                    <span class="pull-left">
+                                        <img class="media-object" src="http://placehold.it/50x50" alt="">
+                                    </span>
+                                    <div class="media-body">
+                                        <h5 class="media-heading"><strong>John Smith</strong>
+                                        </h5>
+                                        <p class="small text-muted"><i class="fa fa-clock-o"></i> Yesterday at 4:32 PM</p>
+                                        <p>Lorem ipsum dolor sit amet, consectetur...</p>
+                                    </div>
+                                </div>
+                            </a>
+                        </li>
+                        <li class="message-footer">
+                            <a href="#">Read All New Messages</a>
+                        </li>
+                    </ul>
+                </li>
+                <li class="dropdown">
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown"><i class="fa fa-bell"></i> <b class="caret"></b></a>
+                    <ul class="dropdown-menu alert-dropdown">
+                        <li>
+                            <a href="#">Alert Name <span class="label label-default">Alert Badge</span></a>
+                        </li>
+                        <li>
+                            <a href="#">Alert Name <span class="label label-primary">Alert Badge</span></a>
+                        </li>
+                        <li>
+                            <a href="#">Alert Name <span class="label label-success">Alert Badge</span></a>
+                        </li>
+                        <li>
+                            <a href="#">Alert Name <span class="label label-info">Alert Badge</span></a>
+                        </li>
+                        <li>
+                            <a href="#">Alert Name <span class="label label-warning">Alert Badge</span></a>
+                        </li>
+                        <li>
+                            <a href="#">Alert Name <span class="label label-danger">Alert Badge</span></a>
+                        </li>
+                        <li class="divider"></li>
+                        <li>
+                            <a href="#">View All</a>
+                        </li>
+                    </ul>
+                </li>
+                <li class="dropdown">
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown"><i class="fa fa-user"></i> Sairam Nutheti <b class="caret"></b></a>
+                    <ul class="dropdown-menu">
+                        <li>
+                            <a href="#"><i class="fa fa-fw fa-user"></i>Edit Profile</a>
+                        </li>
+                        <!-- <li>
+                            <a href="#"><i class="fa fa-fw fa-envelope"></i> Inbox</a>
+                        </li> -->
+                        <li>
+                            <a href="#"><i class="fa fa-fw fa-gear"></i> Settings</a>
+                        </li>
+                        <li class="divider"></li>
+                        <li>
+                            <a href="#"><i class="fa fa-fw fa-power-off"></i> Log Out</a>
+                        </li>
+                    </ul>
+                </li>
+            </ul>
+         
+            <div class="collapse navbar-collapse navbar-ex1-collapse">
+	 <ul class="nav navbar-nav side-nav" >
+					<li><h5 style="margin-top:15px;padding-left:20px;padding-bottom:10px;color:#fff;"><i class="fa fa-bars"></i> Navigation</h5></li>
+						<li>
+                            <a href="/createclient"><i class="fa fa-plus-circle"></i> Create Client</a>
+                        </li>
+					    
+						 <li class="active">
+                            <a href="/createbuilding"><i class="fa fa-list"></i> Create Building</a>                                                      
+                        </li>			
+                         <li>
+                            <a href="/listclients"><i class="fa fa-list"></i> List</a>                                                      
+                        </li>						
+						<!-- <li>
+						                            <a href="/locateclient"><i class="fa fa-map-marker"></i> Locate Client</a>                                                      
+						                        </li>		 -->					
+                </ul>
+            </div>
+            <!-- /.navbar-collapse -->
+        </nav>
+
+        <div id="page-wrapper">
+
+            <div class="container-fluid">
+				 <div class="row" > 
+					  <div class="panel with-nav-tabs panel-default" style=""  > 
+							<div class="panel-heading"  id="top-menu"  >
+							  <ul class="nav nav-tabs" id="menu-tabs">
+                             <li><a href="/index" >Home</a></li>
+                            <li><a href="/createguard" >Guard</a></li>
+                            <li class="active"><a href="/createclient" >Client</a></li>  
+							  </ul>
+							 </div>
+						</div>
+				</div>
+				  <form name="log-form" id="log-form"  role="form" style="margin-left:15px;">   
+                <!-- Page Heading -->
+                <div class="row">
+                    <div class="col-lg-12">
+                     
+                        <ol class="breadcrumb">
+                            <li class="active">
+                                <i class="fa fa-dashboard"></i> Edit Building
+                            </li>
+                        </ol>
+                    </div>
+                </div>
+                   <div class="row">
+                	<div class="col-md-8"> 
+                	
+              <div class="row" id="fields-div" style="display:none">
+			  	<div class="col-md-4"> 
+                				<div class="form-group">
+                				 <h5>Building Name</h5>
+                				 <input type="text" class="form-control" id="buildingName" name="buildingName" tabindex="7"  validationMessage="Please Enter buildingName" style="width:350px;" required />
+                				  <span class="k-invalid-msg" data-for="buildingName"></span>                  				
+                				</div>   
+                </div>
+                <div id="grid-div" style="display:none;">
+                <div id="building-grid"></div>
+                </div>
+                
+               					 <div class="form-group" style="display:none" id="success">   
+              				        <div class="alert alert-success " style="width:350px;">              				      
+              				        Building Updated Successfully!!</div>
+              				  </div>
+              				  <div class="form-group" style="display:none" id="erroralert">   
+              				        <div class="alert alert-danger" id="error" style="width:350px;">              				      
+              				      </div>
+              				  </div> 
+              		</div>             				  
+                </div> 
+                
+                
+              <div class="row" style="padding-bottom:300px;">
+                    <div class="col-lg-12" >                    	
+           					<div class="form-group">
+                				 <h5>Building Name</h5>
+                				 <input id="buildings" style="width: 400px;" name="buildings" validationMessage="Please Select Building" required />   
+                				  <span class="k-invalid-msg" data-for="buildings"></span>        				
+                				</div>
+                	</div>
+                </div>
+    
+            </div>
+            <!-- /.container-fluid -->
+
+        </div>
+        <!-- /#page-wrapper -->
+
+    </div>
+    <!-- /#wrapper -->
+
+   <!-- jQuery -->
+    <script src="/js/jquery.min.js"></script>
+
+	 <script src="/kendojs/kendo.all.min.js"></script>
+    <script src="/kendojs/kendo.timezones.min.js"></script>
+	<script src="https://maps.googleapis.com/maps/api/js"></script>
+    <!-- Bootstrap Core JavaScript -->
+    <script src="/js/bootstrap.min.js"></script>
+
+  	  <!-- Metis Menu Plugin JavaScript -->
+    <script src="/js/metisMenu.min.js"></script>
+
+    <!-- Custom Theme JavaScript -->
+    <script src="/js/main.js"></script>
+	
+ 
+	<script>
+ $(document).ready(function() {  
+ 
+	   $("#buildings").kendoDropDownList({
+                        placeholder: "Select Building",
+                        dataTextField: "buildingName",
+                        dataValueField: "buildingId",
+                        filter: "contains",
+                        autoBind: false,
+                        minLength: 1,
+                        
+                            select:onSelect,
+                        dataSource: {
+                            type: "json",
+                            serverFiltering: false,
+                            transport: {
+                                read: {
+                                    url: "/getBuildings",
+                                }
+                            }
+                        }
+                    });
+                    
+         function onSelect(e) {
+                        
+                            //var dataItem = this.dataItem(e.item.index());
+                            var buildingId=$('#buildings').data("kendoDropDownList").value();
+                             alert(buildingId) ;
+                             
+             $.ajax({	
+		 	 method: 'post',
+			  url: '/getBuildingDetails',
+			  data: { "buildingId":buildingId}
+			})
+			.success(function(response){	
+			
+								if(response.bldng!=undefined && response.checkpoints!=undefined)
+		         				{	       
+		         				
+		         				alert(bldng.buildingName);
+		         				
+		         				$('#cpGrid').data('kendoGrid').setDataSource(response.bldng); 
+		         				$("#erroralert").hide();   				
+		         				document.getElementById('success').style.display = "block";
+		         				$('#log-form')[0].reset();
+		         				}	         				
+		         				else{		         				  
+		         				$("#success").hide();  	         				      				         							  						
+		         				document.getElementById("error").innerHTML = "Error:"+response.error;
+		         				document.getElementById('erroralert').style.display = "block";
+		         				}					
+			})
+			.error(function(error){
+							$("#success").hide();  	         				      				         							  						
+		         				document.getElementById("error").innerHTML = "Error:"+error;
+		         				document.getElementById('erroralert').style.display = "block";
+			 });
+                       
+                       
+                       
+                       
+                       
+                       
+                    }
+                    
+                    
+      dataSource = new kendo.data.DataSource({
+                            transport: {
+                                read:  {
+                                    url: "/getBuildingsGrid",
+                                    dataType: "json"
+                                },
+                                update:{
+                                url: "/editBuilingsGrid",
+                                    dataType: "json",
+                                    type:"post"
+                                },
+                                destroy:{
+                                 url: "/deleteBuidingsGrid",
+                                    dataType: "json",
+                                    type:"post"
+                                },
+                                
+                                parameterMap: function(options, operation) {
+                                    if (operation !== "read" && options.models) {
+                                        return {models: kendo.stringify(options.models)};
+                                    }
+                                }
+                            },
+                            batch: true,
+                            pageSize: 20,
+                            schema: {
+                                model: {
+                                    id: "buildingId",
+                                    fields: {
+                                        buildingId: { editable: false, nullable: true },
+                                      
+                                        buildingName: { type: "string", validation: { required: true, min: 1} },                                 
+                                        guardsRequired:{} ,                              
+                                         addressLine1: { type: "string", validation: { required: true, min: 1} }, 
+                                          addressLine2: { type: "string" }, 
+                                           city: { type: "string", validation: { required: true, min: 1} }, 
+                                            state: { type: "string", validation: { required: true, min: 1} }, 
+                                             zipCode: { type: "string", validation: { required: true, min: 1} },                                            
+                                             serviceStartDate:{type:"date",validation: { required: true, min: 1} },
+                                             serviceEndDate:{type:"date",validation: { required: true, min: 1} },
+                                          cost: { validation: { required: true } },
+                                    }
+                                }
+                            }
+                        });
+
+ var wnd, detailsTemplate;
+ $("#guardgrid").kendoGrid({
+                    	dataSource: dataSource,
+                        height: 500,
+                         filterable: {
+                            mode: "row"
+                        },
+                        
+                        sortable: true,
+                       // groupable:true,
+                        pageable: {
+                            refresh: true,
+                            pageSizes: true,
+                            buttonCount: 5
+                        },
+                         columns: [
+                            { field:"buildingId", title: "First Name" },
+                            { cost: "cost", title:"cost" },                           
+                            { field: "buildingName", title:"buildingName"},
+                            { field: "guardsRequired", title:"Guards Required" ,hidden:true},
+                            { field: "addressLine1", title:"Address Line2",hidden:true },
+                            { field: "addressLine2", title:"City", hidden:true },
+                            { field: "state", title:"State", width: "120px",hidden:true },
+                            { field: "city", title:"Zip Code", width: "120px",hidden:true },
+                              { field: "zipCode", title:"Back Ground Status", width: "120px",hidden:true },
+                             { field: "startDate", title:"Start Date", width: "120px",hidden:true },
+                            { field: "endDate", title:"End Date", width: "120px",hidden:true },
+                             { command: ["edit",{ text: "View", click: showDetails },"destroy"], title: " ", width: "250px" }],
+                        editable: "popup"
+                    });
+                    
+                  
+                    });
+    </script>
+
+
+
+
+
+
+</body>
+
+</html>
